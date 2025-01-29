@@ -7,13 +7,15 @@ export const TICKER_DESCRIPTION =
 export const IS_NEED_TO_SEARCH_IN_WEB_DESCRIPTION =
   'If the ticker symbol is not known, set this to true, and we will try to find the correct one for you.';
 export const TIME_FRAME_DESCRIPTION =
-  'The time frame to fetch the price for, if you want the current price, set it to "currentPrice", if you want the price at a specific time, set it to "specificTime"';
+  'The time frame to fetch the price for, if you want the current price, set it to "currentPrice", if you want the price at a specific time, set it to the time that the user asked';
 
 export const CURRENT_TIME = 'currentPrice';
-export const SPECIFIC_TIME = 'If you understood the the price is related to a specific time, please provide the time here, for example: "3 hours ago", "Yesterday", "At Monday 10:00", "Last year", "15/02/2024" etc.';
+export const SPECIFIC_TIME =
+  'If you understood the the price is related to a specific time, please provide the time here, for example: "3 hours ago", "Yesterday", "At Monday 10:00", "Last year", "15/02/2024" etc.';
 
 export const TOOL_NAME = 'ticker-price-fetcher';
-export const TOOL_DESCRIPTION = 'Tool to fetch the price tickers symbols from a stock or crypto exchange. use this tool to get the current price of a ticker symbol or the price at a specific time.';
+export const TOOL_DESCRIPTION =
+  'Tool to fetch prices of tickers symbols from a stock or crypto exchange. use this tool to get the current price of a ticker symbol or the price at a specific time. you can use this tool even if you dont sure what the ticker symbol is, just provide the information you know and we will try to find the correct one for you.';
 
 export const EXCHANGE_OPTIONS = {
   STOCK: 'stock',

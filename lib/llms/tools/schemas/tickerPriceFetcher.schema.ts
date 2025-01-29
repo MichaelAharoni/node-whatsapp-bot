@@ -7,6 +7,7 @@ import {
   SPECIFIC_TIME,
   TICKER_DESCRIPTION,
   TICKERS_DESCRIPTION,
+  TIME_FRAME_DESCRIPTION,
 } from '../../constants/tickerPriceFetcher.constant';
 
 export const tickerPriceFetcherSchema = z
@@ -16,10 +17,13 @@ export const tickerPriceFetcherSchema = z
         z.object({
           ticker: z.string().describe(TICKER_DESCRIPTION),
           exchange: z.enum([EXCHANGE_OPTIONS.STOCK, EXCHANGE_OPTIONS.CRYPTO]),
-          timeFrame: z.union([
-            z.literal(CURRENT_TIME),
-            z.string().describe(SPECIFIC_TIME),
-          ]),
+          timeFrame: z
+            .union([
+              // z.literal(CURRENT_TIME),
+              z.string().describe(CURRENT_TIME),
+              z.string().describe(SPECIFIC_TIME),
+            ])
+            .describe(TIME_FRAME_DESCRIPTION),
           isNeedToSearchInWeb: z
             .boolean()
             .describe(IS_NEED_TO_SEARCH_IN_WEB_DESCRIPTION),
