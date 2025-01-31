@@ -156,8 +156,8 @@ export async function chatWithGPT(baseMessage: string) {
     const article = await pageInstance.$(RESPONSE_SELECTOR);
     const paragraphElements = await article?.$$('p');
     const response = await Promise.all(
-      paragraphElements!.map((el) => {
-        return el.evaluate((el) => el.textContent);
+      paragraphElements!.map(el => {
+        return el.evaluate(el => el.textContent);
       })
     );
 

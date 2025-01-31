@@ -14,8 +14,8 @@ const getPhoneNumbersWithUserSuffix = () => {
   const phoneNumbersENV = getPhoneNumbersENV();
 
   return Object.values(phoneNumbersENV)
-    .filter((number) => number !== phoneNumbersENV.TREDER_PHONE_NUMBER)
-    .map((phoneNumber) => `${phoneNumber}${WA_CONTACT_SUFFIX}`);
+    .filter(number => number !== phoneNumbersENV.TREDER_PHONE_NUMBER)
+    .map(phoneNumber => `${phoneNumber}${WA_CONTACT_SUFFIX}`);
 };
 
 export const getIsMessageFromGroup = (message: Message) => {
@@ -53,7 +53,7 @@ export const getIsKnownUser = (message: Message) => {
 
 export const getIsDirectedToAnotherUser = (message: Message) => {
   const phoneNumbersENV = getPhoneNumbersENV();
-  const isMessageContainUserName = Object.values(NAMES).some((name) =>
+  const isMessageContainUserName = Object.values(NAMES).some(name =>
     message.body.toLowerCase().includes(name.toLocaleLowerCase())
   );
   if (isMessageContainUserName) return true;

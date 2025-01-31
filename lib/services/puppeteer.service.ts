@@ -117,14 +117,14 @@ export async function chatWithDeepSeek(baseMessage: string) {
     const linksElements = await puppeteerState.pageInstance.$$(LINKS_SELECTOR);
     for (const linkElement of linksElements) {
       await puppeteerState.pageInstance.evaluate(
-        (el) => el.remove(),
+        el => el.remove(),
         linkElement
       );
     }
     const elementsText = await puppeteerState.pageInstance.evaluate(
-      (selector) => {
+      selector => {
         const elementsNodeList = document.querySelectorAll(selector);
-        return Array.from(elementsNodeList).map((el) => el.textContent);
+        return Array.from(elementsNodeList).map(el => el.textContent);
       },
       RESPONSE_SELECTOR
     );

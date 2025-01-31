@@ -4,7 +4,7 @@ import { HALF_A_SECOND, TWO_SECONDS } from '../constants/timeInMs.constants';
 export const waitForCompletion = async (element: ElementHandle<Element>) => {
   const interval = HALF_A_SECOND;
   let previousText = '';
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const checkCompletion = async () => {
       const currentText = await element?.evaluate(
         (el: Element) => el.textContent
@@ -13,7 +13,7 @@ export const waitForCompletion = async (element: ElementHandle<Element>) => {
       const isLoading = regex.test(currentText || '');
       if (currentText && !isLoading && currentText === previousText) {
         setTimeout(
-          (text) => {
+          text => {
             resolve(text);
           },
           TWO_SECONDS,
@@ -43,11 +43,10 @@ export const waitUntilParentChildCountIncreased = async (
   _originalLength?: number
 ) => {
   const originalLength =
-    _originalLength ||
-    (await parentElement.evaluate((el) => el.children.length));
-  return new Promise(async (resolve) => {
+    _originalLength || (await parentElement.evaluate(el => el.children.length));
+  return new Promise(async resolve => {
     const currentChildCount = await parentElement.evaluate(
-      (el) => el.children.length
+      el => el.children.length
     );
     const targetChildCount = originalLength + increasedByCount;
     if (currentChildCount >= targetChildCount) {
@@ -67,4 +66,4 @@ export const waitUntilParentChildCountIncreased = async (
 };
 
 export const resolveAfterTimeout = (timeout: number) =>
-  new Promise((resolve) => setTimeout(resolve, timeout));
+  new Promise(resolve => setTimeout(resolve, timeout));

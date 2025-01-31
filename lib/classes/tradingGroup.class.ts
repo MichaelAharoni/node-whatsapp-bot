@@ -39,7 +39,7 @@ export class TradingGroupChat {
   async waitForInitialization() {
     const isInitialized = this.getIsInitialized();
     while (!isInitialized) {
-      await new Promise((resolve) => setTimeout(resolve, HALF_A_SECOND));
+      await new Promise(resolve => setTimeout(resolve, HALF_A_SECOND));
     }
   }
 }

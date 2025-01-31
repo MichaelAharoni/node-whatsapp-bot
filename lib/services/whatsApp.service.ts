@@ -24,7 +24,7 @@ const whatsAppState: { client: Client; isInitialized: boolean } = {
 
 export const waitUntilClientIsInitialized = async () => {
   while (!whatsAppState.isInitialized) {
-    await new Promise((resolve) => setTimeout(resolve, HALF_A_SECOND));
+    await new Promise(resolve => setTimeout(resolve, HALF_A_SECOND));
   }
 };
 
@@ -51,7 +51,7 @@ export const initClient = async () => {
     },
   });
 
-  client.on('qr', (qr) => {
+  client.on('qr', qr => {
     qrcode.generate(qr, { small: true });
   });
 

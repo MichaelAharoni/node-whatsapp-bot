@@ -20,12 +20,15 @@ const runTasks = async (tradingGroupChat: any) => {
   const instructionsToRun = [DAILY_WEATHER_FORECAST];
 
   instructionsToRun.forEach((instruction, index) => {
-    setTimeout(async () => {
-      console.log('Running instruction:', instruction);
-      const modelResponse = await chatWithDeepSeek(instruction);
-      // tradingGroupChat?.sendMessage(modelResponse!);
-      sendMessageToContact(process.env.MICHAEL_PHONE_NUMBER!, modelResponse!);
-    }, 60 * 1000 * index);
+    setTimeout(
+      async () => {
+        console.log('Running instruction:', instruction);
+        const modelResponse = await chatWithDeepSeek(instruction);
+        // tradingGroupChat?.sendMessage(modelResponse!);
+        sendMessageToContact(process.env.MICHAEL_PHONE_NUMBER!, modelResponse!);
+      },
+      60 * 1000 * index
+    );
   });
 };
 
