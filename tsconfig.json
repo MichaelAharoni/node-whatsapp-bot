@@ -7,7 +7,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "strict": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "lib": ["es2015"],
   "include": ["lib/**/*.ts", "app.ts"],

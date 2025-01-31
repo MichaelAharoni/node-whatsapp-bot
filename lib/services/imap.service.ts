@@ -74,8 +74,8 @@ class ImapListener {
               markSeen: true, // Mark emails as read after fetching
             });
 
-            fetch.on('message', (msg) => {
-              msg.on('body', async (stream) => {
+            fetch.on('message', msg => {
+              msg.on('body', async stream => {
                 try {
                   const parsed = await this.parseEmail(stream);
                   // Filter and process email based on conditions
@@ -89,7 +89,7 @@ class ImapListener {
               });
             });
 
-            fetch.once('error', (err) => {
+            fetch.once('error', err => {
               console.error('Fetch error:', err);
             });
           });
@@ -99,7 +99,7 @@ class ImapListener {
       }
     });
 
-    this.imap.once('error', (err) => {
+    this.imap.once('error', err => {
       console.error('IMAP connection error:', err);
     });
 
@@ -121,7 +121,7 @@ const imapConfig: ImapConfig = {
 };
 
 export const waitUntilImapListenerReady = async () => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const checkReady = () => {
       if (imapState.isReady) {
         resolve(true);

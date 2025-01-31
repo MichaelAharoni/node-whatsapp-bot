@@ -1,4 +1,3 @@
-
 import { DynamicStructuredTool } from '@langchain/core/tools';
 import { tickerPriceFetcherSchema } from './schemas/tickerPriceFetcher.schema';
 import {
@@ -13,5 +12,3 @@ export const tickerPriceFetcherTool = new DynamicStructuredTool({
   schema: tickerPriceFetcherSchema,
   func: tickerPriceFetcherFunction,
 });
-
-

@@ -6,7 +6,10 @@ import { tickerPriceFetcherTool } from '../tools/tickerPriceFetcher.tool';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
 
 const prompt = ChatPromptTemplate.fromMessages([
-  ['system', 'You are a helpful assistant, use your tools to help me with the following task:'],
+  [
+    'system',
+    'You are a helpful assistant, use your tools to help me with the following task:',
+  ],
   ['human', '{input}'],
   ['placeholder', '{agent_scratchpad}'],
 ]);
@@ -24,7 +27,8 @@ export const geminiAgentExecutor = new AgentExecutor({
 
 (async () => {
   const agentResponse = await geminiAgentExecutor.invoke({
-    input: 'What is the price of Bitcoin and the nasdaq, and what was yesterday price of the stock bvolagjans ?',
+    input:
+      'What is the differences between yesterday opening price and todays opening price of QQQ ?',
   });
   console.log('agentResponse', agentResponse);
 })();
